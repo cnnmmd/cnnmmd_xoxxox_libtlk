@@ -1,0 +1,58 @@
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <input id="adrsys" style="width: 32em"></input> (adrsys)<br/>
+    <input id="keyspk" style="width: 32em"></input> (keyspk)<br/>
+    <input id="keysty" style="width: 32em"></input> (keysty)<br/>
+    <button onclick="reqsys()">status</button><br/>
+    <br/>
+    <input id="adrgen" style="width: 32em"></input> (adrgen)<br/>
+    <textarea id="txtreq" style="width: 32em; height: 8em;"></textarea><br/>
+    <button onclick="reqgen()">infere</button><br/>
+    <script>
+
+//--------------------------------------------------------------------------
+
+const reqsys = async () => {
+  const adrsys = document.getElementById('adrsys').value;
+  const keyspk = document.getElementById('keyspk').value;
+  const keysty = document.getElementById('keysty').value;
+  const dicreq = {keyspk: keyspk, keysty: keysty};
+  const stsres = await fetch(adrsys, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(dicreq)
+  });
+}
+
+const reqgen = async () => {
+  const adrgen = document.getElementById('adrgen').value;
+  const txtreq = document.getElementById('txtreq').value;
+  const dicreq = {txtreq: txtreq};
+  const stsres = await fetch(adrgen, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(dicreq)
+  });
+  if (stsres.ok) {
+    const blbado = await stsres.blob();
+    const adrado = URL.createObjectURL(blbado);
+    const objado = new Audio(adrado);
+    objado.play();
+  }
+  else {
+    alert('err: ' + stsres.statusText);
+  }
+}
+
+//--------------------------------------------------------------------------
+
+    </script>
+  </body>
+</html>

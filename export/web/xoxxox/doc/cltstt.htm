@@ -1,0 +1,55 @@
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <input id="adrgen" style="width: 32em"></input> (adrgen)<br/>
+    <input id="mscrec" style="width: 32em"></input> (mscrec)<br/>
+    <button onclick="reqgen()">infere</button><br/>
+    <p>[<span id="docres"></span>]</p>
+    <script>
+  
+
+//------------------------------------------------------------------------
+
+const reqgen = async () => {
+  const adrgen = document.getElementById('adrgen').value;
+  const mscrec = Number(document.getElementById('mscrec').value);
+  const docres = document.getElementById('docres');
+  const stream = await navigator.mediaDevices.getUserMedia({audio: true});
+  const devrec = new MediaRecorder(stream);
+  devrec.start();
+
+  let cnksnd = [];
+  devrec.ondataavailable = (e) => {
+    cnksnd.push(e.data);
+  };
+
+  devrec.onstop = async () => {
+    const blbsnd = new Blob(cnksnd, {type: 'audio/webm'});
+    const objres = await fetch(adrgen, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'audio/webm'
+      },
+      body: blbsnd
+    });
+    cnksnd = [];
+    stream.getTracks().forEach(itmtrk => itmtrk.stop());
+    let dicres = await objres.json();
+    let txtres = dicres['txtres'];
+    docres.textContent = txtres;
+  };
+
+  setTimeout(() => {
+    if (devrec.state === 'recording') {
+      devrec.stop();
+    }
+  }, mscrec);
+}
+
+//--------------------------------------------------------------------------
+
+    </script>
+  </body>
+</html>
