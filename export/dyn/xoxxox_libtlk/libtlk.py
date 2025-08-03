@@ -19,7 +19,7 @@ class PrcStt:
     datnew = txtres.encode("utf-8")
     return datnew
 
-LibMid.dicprc.append({"key": "xoxxox.PrcStt.cnnstt", "frm": "LibMid.plugin['xoxxox_libtlk'].PrcStt.cnnstt(values[dicreq['keydat']], dicreq['server'], dicreq['config'])", "syn": False})
+
 
 #---------------------------------------------------------------------------
 # 処理：ＴＴＳ
@@ -44,7 +44,7 @@ class PrcTts:
         rawres = await datres.read()
     return rawres
 
-LibMid.dicprc.append({"key": "xoxxox.PrcTts.cnntts", "frm": "LibMid.plugin['xoxxox_libtlk'].PrcTts.cnntts(values[dicreq['keydat']], dicreq['server'], dicreq['config'])", "syn": False})
+
 
 #---------------------------------------------------------------------------
 # 処理：ＴＴＴ
@@ -71,7 +71,7 @@ class PrcTtt:
     datnew = txtres.encode("utf-8")
     return datnew
 
-LibMid.dicprc.append({"key": "xoxxox.PrcTtt.cnnttt", "frm": "LibMid.plugin['xoxxox_libtlk'].PrcTtt.cnnttt(values[dicreq['keydat']], dicreq['server'], dicreq['config'])", "syn": False})
+
 
 #---------------------------------------------------------------------------
 # 処理：感情分析
@@ -98,4 +98,8 @@ class PrcSen:
         datnew = txtres.encode("utf-8")
         return datnew
 
-LibMid.dicprc.append({"key": "xoxxox.PrcSen.cnnsen", "frm": "LibMid.plugin['xoxxox_libtlk'].PrcSen.cnnsen(values[dicreq['keydat']], dicreq['server'], dicreq['config'])", "syn": False})
+
+LibMid.dicprc["xoxxox.PrcStt.cnnstt"] = {"frm": "xoxxox_libtlk.PrcStt.cnnstt", "arg": ["keydat"], "cnf": ["server", "config"], "syn": False}
+LibMid.dicprc["xoxxox.PrcTts.cnntts"] = {"frm": "xoxxox_libtlk.PrcTts.cnntts", "arg": ["keydat"], "cnf": ["server", "config"], "syn": False}
+LibMid.dicprc["xoxxox.PrcTtt.cnnttt"] = {"frm": "xoxxox_libtlk.PrcTtt.cnnttt", "arg": ["keydat"], "cnf": ["server", "config"], "syn": False}
+LibMid.dicprc["xoxxox.PrcSen.cnnsen"] = {"frm": "xoxxox_libtlk.PrcSen.cnnsen", "arg": ["keydat"], "cnf": ["server", "config"], "syn": False}
