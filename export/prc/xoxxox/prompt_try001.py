@@ -23,8 +23,8 @@ class ConLog:
   def catreq(self, txtreq):
     frmusr = self.strcon.join(["<|usr|>", txtreq, "<|end|>"])
     self.lstlog.append(frmusr)
-    txtlog = self.strlog.join(["".join(self.lstsys), self.strlog.join(self.lstlog), "<|agt|>"]) + self.strcon
-    return txtlog
+    txtprm = self.strlog.join(["".join(self.lstsys), self.strlog.join(self.lstlog), "<|agt|>"]) + self.strcon
+    return txtprm
 
   @classmethod
   def catres(self, txtres):
