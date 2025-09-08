@@ -17,8 +17,8 @@ class ConLog:
     dicusr = {"role": "user", "content": txtreq}
     self.lstlog.append(dicusr)
     lstprm = []
-    lstprm.expand(self.lstsys)
-    lstprm.expand(self.lstlog)
+    lstprm.extend(self.lstsys)
+    lstprm.extend(self.lstlog)
     return lstprm
 
   @classmethod
