@@ -34,8 +34,8 @@ class ConLog:
   def catreq(self, txtreq):
     self.dictlk["elmusr"] = txtreq
     self.lstbdy.append(self.frmusr.format_map(self.dictlk))
-    txtlog = "".join(self.lsthed + self.lstbdy)
-    return txtlog
+    txtprm = "".join(self.lsthed + self.lstbdy)
+    return txtprm
 
   @classmethod
   def catres(self, txtres):
