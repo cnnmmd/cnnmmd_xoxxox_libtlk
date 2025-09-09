@@ -13,10 +13,10 @@ def getprc(engine):
 
 def infere(txtreq):
   if gensyn == "1":
-    txtres = tttprc.infere(txtreq)
+    txtres, txtopt = tttprc.infere(txtreq)
   else:
-    txtres = asyncio.run(tttprc.infere(txtreq))
-  return txtres
+    txtres, txtopt = asyncio.run(tttprc.infere(txtreq))
+  return (txtres, txtopt)
 
 #---------------------------------------------------------------------------
 
@@ -46,6 +46,8 @@ tttprc.status(**dicprm)
 while True:
   print("> ", end="")
   txtreq = input()
-  txtres = infere(txtreq)
+  txtres, txtopt = infere(txtreq)
   print("< ", end="")
   print(txtres)
+  print("- ", end="")
+  print(txtopt)
