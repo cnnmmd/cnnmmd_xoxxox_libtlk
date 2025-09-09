@@ -44,3 +44,5 @@ while True:
   dicres = asyncio.run(reqgen(dicprm, server + adsgen))
   print("< ", end="")
   print(dicres["txtres"])
+  print("- ", end="")
+  print(dicres["txtopt"])

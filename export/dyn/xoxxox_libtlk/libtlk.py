@@ -47,36 +47,9 @@ class PrcTts:
 LibMid.dicprc["xoxxox.PrcTts.cnntts"] = {"frm": "xoxxox_libtlk.PrcTts.cnntts", "arg": ["keydat"], "cnf": ["server", "config"], "syn": False}
 
 #---------------------------------------------------------------------------
-# 処理：ＴＴＴ
-
-class PrcTtt:
-
-  # 変数
-  oldcfg = ""
-
-  # 生成：テキスト → テキスト
-  @staticmethod
-  async def cnnttt(datorg, server, config):
-
-    if config != PrcTtt.oldcfg:
-      async with aiohttp.ClientSession() as sssweb:
-        async with sssweb.post(server + "/sys", json={"config": config}) as datres:
-          dicres = await datres.json()
-      PrcTtt.oldcfg = config
-
-    async with aiohttp.ClientSession() as sssweb:
-      async with sssweb.post(server + "/gen", json={"txtreq": datorg.decode("utf-8")}) as datres:
-        dicres = await datres.json()
-    txtres = dicres["txtres"]
-    datnew = txtres.encode("utf-8")
-    return datnew
-
-LibMid.dicprc["xoxxox.PrcTtt.cnnttt"] = {"frm": "xoxxox_libtlk.PrcTtt.cnnttt", "arg": ["keydat"], "cnf": ["server", "config"], "syn": False}
-
-#---------------------------------------------------------------------------
 # 処理：ＴＴＴ：オプションあり
 
-class PrcTtt_Opt:
+class PrcTtt:
 
   # 変数
   oldcfg = ""
@@ -100,7 +73,7 @@ class PrcTtt_Opt:
     datopt = txtopt.encode("utf-8")
     return (datnew, datopt)
 
-LibMid.dicprc["xoxxox.PrcTtt_Opt.cnnttt"] = {"frm": "xoxxox_libtlk.PrcTtt_Opt.cnnttt", "arg": ["keydat"], "cnf": ["server", "config"], "syn": False}
+LibMid.dicprc["xoxxox.PrcTtt.cnnttt"] = {"frm": "xoxxox_libtlk.PrcTtt.cnnttt", "arg": ["keydat"], "cnf": ["server", "config"], "syn": False}
 
 #---------------------------------------------------------------------------
 # 処理：感情分析

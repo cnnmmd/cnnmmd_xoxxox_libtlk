@@ -25,11 +25,11 @@ async def resgen(datreq):
   dicreq = await datreq.json()
   txtreq = dicreq["txtreq"]
   if gensyn == "1":
-    txtres = tttprc.infere(txtreq)
+    txtres, txtopt = tttprc.infere(txtreq)
   else:
-    txtres = await tttprc.infere(txtreq)
+    txtres, txtopt = await tttprc.infere(txtreq)
   return web.Response(
-    text=json.dumps({"txtres": txtres}),
+    text=json.dumps({"txtres": txtres, "txtopt": txtopt}),
     content_type="application/json",
   )
 
