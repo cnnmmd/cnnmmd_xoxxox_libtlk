@@ -58,4 +58,6 @@ class ConLog:
     txtres = txtres[:e]
     txtres = txtres.replace(" ", "")
     txtres = txtres.replace("\n", "")
+    txtres = txtres.replace("「", "")
+    txtres = txtres.replace("」", "")
     return (txtres, "")
