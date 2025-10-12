@@ -56,4 +56,6 @@ class ConLog:
       txtres.find("[") if "[" in txtres else len(txtres)
     )
     txtres = txtres[:e]
+    txtres = txtres.replace(" ", "")
+    txtres = txtres.replace("\n", "")
     return (txtres, "")
