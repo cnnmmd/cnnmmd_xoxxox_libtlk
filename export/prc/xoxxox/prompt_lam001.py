@@ -51,10 +51,11 @@ class ConLog:
   @classmethod
   def arrres(self, txtifr):
     txtres = txtifr
-    txtres = txtres[:txtres.find("<")]
-    txtres = txtres[:txtres.find("[")]
+    e = min(
+      txtres.find("<") if "<" in txtres else len(txtres),
+      txtres.find("[") if "[" in txtres else len(txtres)
+    )
+    txtres = txtres[:e]
     txtres = txtres.replace(" ", "")
     txtres = txtres.replace("\n", "")
-    txtres = txtres.replace("「", "")
-    txtres = txtres.replace("」", "")
     return (txtres, "")
