@@ -101,3 +101,30 @@ class PrcSen:
         return datnew
 
 LibMid.dicprc["xoxxox.PrcSen.cnnsen"] = {"frm": "xoxxox_libtlk.PrcSen.cnnsen", "arg": ["keydat"], "cnf": ["server", "config"], "syn": False}
+
+#---------------------------------------------------------------------------
+# 処理：ＲＡＧ
+
+class PrcRag:
+
+  # 変数
+  oldcfg = ""
+
+  # 変換：テキスト → テキスト
+  @staticmethod
+  async def cnnrag(datorg: bytes, server: str, config: str) -> bytes:
+
+    if config != PrcRag.oldcfg:
+      async with aiohttp.ClientSession() as sssweb:
+        async with sssweb.post(server + "/sys", json={"config": config}) as datres:
+          dicres = await datres.json()
+      PrcRag.oldcfg = config
+
+    async with aiohttp.ClientSession() as sssweb:
+      async with sssweb.post(server + "/gen", json={"txtreq": datorg.decode("utf-8")}) as datres:
+        dicres = await datres.json()
+        txtres = dicres["txtres"]
+        datnew = txtres.encode("utf-8")
+        return datnew
+
+LibMid.dicprc["xoxxox.PrcRag.cnnrag"] = {"frm": "xoxxox_libtlk.PrcRag.cnnrag", "arg": ["keydat"], "cnf": ["server", "config"], "syn": False}
