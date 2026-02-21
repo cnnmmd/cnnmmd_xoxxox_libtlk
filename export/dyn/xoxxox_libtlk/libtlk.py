@@ -19,7 +19,7 @@ class PrcStt:
     datnew = txtres.encode("utf-8")
     return datnew
 
-LibMid.dicprc["xoxxox.PrcStt.cnnstt"] = {"frm": "xoxxox_libtlk.PrcStt.cnnstt", "arg": ["keydat"], "cnf": ["server", "config"], "syn": False}
+LibMid.dicprc["xoxxox.PrcStt.cnnstt"] = {"frm": "xoxxox_libtlk.PrcStt.cnnstt", "arg": ["keymmd"], "cnf": ["server", "config"], "syn": False}
 
 #---------------------------------------------------------------------------
 # 処理：ＴＴＳ
@@ -44,7 +44,7 @@ class PrcTts:
         rawres = await datres.read()
     return rawres
 
-LibMid.dicprc["xoxxox.PrcTts.cnntts"] = {"frm": "xoxxox_libtlk.PrcTts.cnntts", "arg": ["keydat"], "cnf": ["server", "config"], "syn": False}
+LibMid.dicprc["xoxxox.PrcTts.cnntts"] = {"frm": "xoxxox_libtlk.PrcTts.cnntts", "arg": ["keymmd"], "cnf": ["server", "config"], "syn": False}
 
 #---------------------------------------------------------------------------
 # 処理：ＴＴＴ：オプションあり
@@ -73,7 +73,7 @@ class PrcTtt:
     datopt = txtopt.encode("utf-8")
     return (datnew, datopt)
 
-LibMid.dicprc["xoxxox.PrcTtt.cnnttt"] = {"frm": "xoxxox_libtlk.PrcTtt.cnnttt", "arg": ["keydat"], "cnf": ["server", "config"], "syn": False}
+LibMid.dicprc["xoxxox.PrcTtt.cnnttt"] = {"frm": "xoxxox_libtlk.PrcTtt.cnnttt", "arg": ["keymmd"], "cnf": ["server", "config"], "syn": False}
 
 #---------------------------------------------------------------------------
 # 処理：感情分析
@@ -100,7 +100,7 @@ class PrcSen:
         datnew = txtres.encode("utf-8")
         return datnew
 
-LibMid.dicprc["xoxxox.PrcSen.cnnsen"] = {"frm": "xoxxox_libtlk.PrcSen.cnnsen", "arg": ["keydat"], "cnf": ["server", "config"], "syn": False}
+LibMid.dicprc["xoxxox.PrcSen.cnnsen"] = {"frm": "xoxxox_libtlk.PrcSen.cnnsen", "arg": ["keymmd"], "cnf": ["server", "config"], "syn": False}
 
 #---------------------------------------------------------------------------
 # 処理：ＲＡＧ
@@ -127,4 +127,4 @@ class PrcRag:
         datnew = txtres.encode("utf-8")
         return datnew
 
-LibMid.dicprc["xoxxox.PrcRag.cnnrag"] = {"frm": "xoxxox_libtlk.PrcRag.cnnrag", "arg": ["keydat"], "cnf": ["server", "config"], "syn": False}
+LibMid.dicprc["xoxxox.PrcRag.cnnrag"] = {"frm": "xoxxox_libtlk.PrcRag.cnnrag", "arg": ["keymmd"], "cnf": ["server", "config"], "syn": False}
