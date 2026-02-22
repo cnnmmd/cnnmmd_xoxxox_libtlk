@@ -22,7 +22,7 @@ class ConLog:
       "elmsys": diccnf["status"],
       "txtsrc": diccnf["rolusr"],
       "txtdst": diccnf["rolagt"],
-      "elmusr": diccnf["inislf"],
+      "elmusr": diccnf["iniusr"],
       "elmagt": diccnf["iniagt"],
       "txtdef": diccnf["sepcnv"],
     }
