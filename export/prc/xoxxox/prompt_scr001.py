@@ -17,14 +17,14 @@ class ConLog:
     self.frmagt = "{txtdst}{txtdef}{elmagt}\n"
     # 設定：個別
     self.maxbdy = diccnf["maxlog"]
-    self.nulagt = diccnf["nuloth"]
+    self.nulagt = diccnf["nulagt"]
     self.dictlk = {
       "elmsys": diccnf["status"],
-      "txtsrc": diccnf["rolslf"],
-      "txtdst": diccnf["roloth"],
+      "txtsrc": diccnf["rolusr"],
+      "txtdst": diccnf["rolagt"],
       "elmusr": diccnf["inislf"],
-      "elmagt": diccnf["inioth"],
-      "txtdef": "＞",
+      "elmagt": diccnf["iniagt"],
+      "txtdef": diccnf["sepcnv"],
     }
     self.lsthed.append(self.frmsys.format_map(self.dictlk))
     self.lstbdy.append(self.frmusr.format_map(self.dictlk))
